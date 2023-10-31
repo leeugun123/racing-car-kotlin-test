@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation("com.github.woowacourse-projects:mission-utils:1.1.0")
 }
 
 test {
