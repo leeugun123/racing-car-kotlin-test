@@ -13,17 +13,22 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
     fun carSimul(){
 
         for (i in 0..< count) {
+
             execute()
+
+           
+
         }
 
     }
+
 
     private fun execute(){
 
         for(car in cars){
 
             if(randomCheck()){
-
+                forward(car)
             }
 
         }
@@ -39,6 +44,10 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
             false
         }
 
+    }
+
+    private fun forward(car : Car){
+        car.addForwardCount()
     }
 
 
