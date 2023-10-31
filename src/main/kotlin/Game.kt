@@ -6,8 +6,11 @@ class Game {
 
     fun start(){
 
+        //1. 초기 안내문
         println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
 
+
+        //2. 초기 설정
         val names  = Console.readLine()
 
         if (names == null || "," !in names) {
@@ -25,7 +28,11 @@ class Game {
         else
             carList.setCount(count.toInt())
 
+
+        //3. 카 시뮬레이션 실행
         carList.carSimul()
+
+
 
 
 

@@ -1,5 +1,3 @@
-import camp.nextstep.edu.missionutils.Randoms
-
 data class CarList(private var cars : MutableList<Car> , private var count : Int){
 
     fun setCount(count: Int){
@@ -28,7 +26,7 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
 
         for(car in cars){
 
-            if(randomCheck()){
+            if(NumCheck.randomCheck()){
                 forward(car)
             }
 
@@ -36,16 +34,6 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
 
     }
 
-
-    private fun randomCheck() : Boolean{
-
-        return if(4 <= Randoms.pickNumberInRange(0,9)){
-            true
-        } else {
-            false
-        }
-
-    }
 
     private fun forward(car : Car){
         car.addForwardCount()
@@ -62,9 +50,8 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
 
         }
 
+
     }
-
-
 
 
 
