@@ -31,6 +31,13 @@ class Game {
 
         //3. 카 시뮬레이션 실행
         carList.carSimul()
+        println()
+
+
+        //4. 우승자 선정
+        val winner = carList.selectWinner()
+
+        //5. 우승자 출력
 
 
 

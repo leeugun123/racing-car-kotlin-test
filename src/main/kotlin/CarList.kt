@@ -1,4 +1,4 @@
-data class CarList(private var cars : MutableList<Car> , private var count : Int){
+data class CarList(private var cars : MutableList<Car>, private var count : Int){
 
     fun setCount(count: Int){
         this.count = count
@@ -53,8 +53,40 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
 
     }
 
+    fun selectWinner() : MutableList<String>{
+
+        val winner  = mutableListOf<String>()
+
+        val maxNum = findMax()
+
+        for(car in cars){
+
+            if(maxNum == car.forwardCount)
+                winner.add(car.carName)
 
 
+        }
+
+        return winner
+
+    }
+
+    private fun findMax(): Int {
+
+        var max = 0
+
+
+        for(car in cars){
+
+            if(max < car.forwardCount)
+                max = car.forwardCount
+
+        }
+
+
+        return max
+
+    }
 
 
 }
