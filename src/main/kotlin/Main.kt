@@ -1,5 +1,7 @@
 
 
 fun main(args: Array<String>) {
-    println()
+
+    Game().start()
+
 }
