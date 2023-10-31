@@ -1,4 +1,4 @@
-object PrintWinner {
+object Print {
 
     fun printWinner(winners: MutableList<String>) {
 
@@ -43,5 +43,18 @@ object PrintWinner {
 
     }
 
+    fun printCarState() {
+
+        for(car in Game.carList.getCars()){
+
+            val carName = car.carName
+            val path = car.path
+
+            println("$carName : $path")
+
+        }
+
+
+    }
 
 }

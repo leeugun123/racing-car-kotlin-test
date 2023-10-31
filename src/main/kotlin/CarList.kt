@@ -1,7 +1,12 @@
 data class CarList(private var cars : MutableList<Car>, private var count : Int){
 
+
     fun setCount(count: Int){
         this.count = count
+    }
+
+    fun getCars() : MutableList<Car>{
+        return cars
     }
 
     fun addCar(name : String){
@@ -14,7 +19,7 @@ data class CarList(private var cars : MutableList<Car>, private var count : Int)
 
             execute()
 
-            printCarState()
+            Print.printCarState()
 
             println()//한줄 내리기
 
@@ -41,54 +46,7 @@ data class CarList(private var cars : MutableList<Car>, private var count : Int)
         car.addForwardCount()
     }
 
-    private fun printCarState() {
 
-        for(car in cars){
-
-            val carName = car.carName
-            val path = car.path
-
-            println("$carName : $path")
-
-        }
-
-
-    }
-
-    fun selectWinner() : MutableList<String>{
-
-        val winner  = mutableListOf<String>()
-
-        val maxNum = findMax()
-
-        for(car in cars){
-
-            if(maxNum == car.forwardCount)
-                winner.add(car.carName)
-
-
-        }
-
-        return winner
-
-    }
-
-    private fun findMax(): Int {
-
-        var max = 0
-
-
-        for(car in cars){
-
-            if(max < car.forwardCount)
-                max = car.forwardCount
-
-        }
-
-
-        return max
-
-    }
 
 
 }

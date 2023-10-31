@@ -2,7 +2,10 @@ import camp.nextstep.edu.missionutils.Console
 
 class Game {
 
-    var carList : CarList = CarList(mutableListOf<Car>() , 0)
+    companion object {
+        val carList : CarList = CarList(mutableListOf<Car>() , 0)
+    }
+
 
     fun start(){
 
@@ -15,12 +18,13 @@ class Game {
 
 
         //3. 우승자 선정
-        val winners = carList.selectWinner()
+        val winners = Select.selectWinner(carList.getCars())
+
 
 
         //4. 우승자 출력
 
-        PrintWinner.printWinner(winners)
+        Print.printWinner(winners)
 
 
 
