@@ -2,7 +2,7 @@ import camp.nextstep.edu.missionutils.Randoms
 
 data class CarList(private var cars : MutableList<Car> , private var count : Int){
 
-    fun setCount(count : Int){
+    fun setCount(count: Int){
         this.count = count
     }
 
