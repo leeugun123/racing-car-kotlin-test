@@ -16,12 +16,13 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
 
             execute()
 
-           
+            printCarState()
+
+            println()//한줄 내리기
 
         }
 
     }
-
 
     private fun execute(){
 
@@ -50,7 +51,13 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
         car.addForwardCount()
     }
 
+    private fun printCarState() {
 
+        for(car in cars){
+            println(car.getCarName() + " : " + car.printAddPath())
+        }
+
+    }
 
 
 

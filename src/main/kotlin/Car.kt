@@ -1,4 +1,4 @@
-data class Car(var name: String , var forwardCount : Int = 0, var path : String = ""){
+data class Car(private var carName: String , var forwardCount : Int = 0, var path : String = ""){
 
 
 
@@ -9,6 +9,14 @@ data class Car(var name: String , var forwardCount : Int = 0, var path : String 
 
     private fun addPath() {
         path += "-"
+    }
+
+    fun getCarName() : String{
+        return carName
+    }
+
+    fun printAddPath(){
+        println(path)
     }
 
 
