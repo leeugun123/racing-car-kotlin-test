@@ -35,13 +35,45 @@ class Game {
 
 
         //4. 우승자 선정
-        val winner = carList.selectWinner()
+        val winners = carList.selectWinner()
 
         //5. 우승자 출력
+        print("최종 우승자 : ")
+        printWinner(winners)
 
 
 
+    }
 
+    private fun printWinner(winners: MutableList<String>) {
+
+        if(checkMultiWinner(winners)){
+
+            multiPrintWinner(winners)
+
+        }else{
+
+            print(winners[0])
+
+        }
+
+    }
+
+    private fun multiPrintWinner(winners: MutableList<String>){
+
+        val result = StringBuilder()
+
+        for ((index, item) in winners.withIndex()) {
+
+            result.append(item)
+
+            if (index < winners.size - 1) {
+                result.append(", ")
+            }
+
+        }
+
+        println(result.toString())
 
     }
 
@@ -71,6 +103,15 @@ class Game {
     private fun throwException(){
 
         throw IllegalArgumentException("")
+
+    }
+
+    private fun checkMultiWinner(winners: MutableList<String>) : Boolean{
+
+        return if(winners.size == 1)
+            false
+        else
+            true
 
     }
 
