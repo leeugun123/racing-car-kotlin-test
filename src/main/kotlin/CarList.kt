@@ -20,6 +20,8 @@ data class CarList(private var cars : MutableList<Car>, private var count : Int)
 
         }
 
+        println()
+
     }
 
     private fun execute(){

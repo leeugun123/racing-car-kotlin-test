@@ -6,7 +6,28 @@ class Game {
 
     fun start(){
 
-        //1. 초기 안내문
+        //1. 초기 설정
+        initSet()
+
+
+        //2. 카 시뮬레이션 실행
+        carList.carSimul()
+
+
+        //3. 우승자 선정
+        val winners = carList.selectWinner()
+
+
+        //4. 우승자 출력
+        print("최종 우승자 : ")
+        PrintWinner.printWinner(winners)
+
+
+
+    }
+
+    fun initSet(){
+
         println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
 
         //2. 초기 설정
@@ -26,20 +47,6 @@ class Game {
             throwException()
         else
             carList.setCount(count.toInt())
-
-
-        //3. 카 시뮬레이션 실행
-        carList.carSimul()
-        println()
-
-
-        //4. 우승자 선정
-        val winners = carList.selectWinner()
-
-        //5. 우승자 출력
-        print("최종 우승자 : ")
-        PrintWinner.printWinner(winners)
-
 
 
     }
