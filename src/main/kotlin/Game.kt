@@ -9,7 +9,6 @@ class Game {
         //1. 초기 안내문
         println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
 
-
         //2. 초기 설정
         val names  = Console.readLine()
 
@@ -39,43 +38,13 @@ class Game {
 
         //5. 우승자 출력
         print("최종 우승자 : ")
-        printWinner(winners)
+        PrintWinner.printWinner(winners)
 
 
 
     }
 
-    private fun printWinner(winners: MutableList<String>) {
 
-        if(checkMultiWinner(winners)){
-
-            multiPrintWinner(winners)
-
-        }else{
-
-            print(winners[0])
-
-        }
-
-    }
-
-    private fun multiPrintWinner(winners: MutableList<String>){
-
-        val result = StringBuilder()
-
-        for ((index, item) in winners.withIndex()) {
-
-            result.append(item)
-
-            if (index < winners.size - 1) {
-                result.append(", ")
-            }
-
-        }
-
-        println(result.toString())
-
-    }
 
     private fun setCarList(names: String?) {
 
@@ -106,14 +75,6 @@ class Game {
 
     }
 
-    private fun checkMultiWinner(winners: MutableList<String>) : Boolean{
-
-        return if(winners.size == 1)
-            false
-        else
-            true
-
-    }
 
 
 
