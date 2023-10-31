@@ -7,7 +7,7 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
     }
 
     fun addCar(name : String){
-        cars.add(Car(name))
+        cars.add(Car(name,0,""))
     }
 
     fun carSimul(){
@@ -54,7 +54,12 @@ data class CarList(private var cars : MutableList<Car> , private var count : Int
     private fun printCarState() {
 
         for(car in cars){
-            println(car.getCarName() + " : " + car.printAddPath())
+
+            val carName = car.carName
+            val path = car.path
+
+            println("$carName : $path")
+
         }
 
     }

@@ -25,6 +25,8 @@ class Game {
         else
             carList.setCount(count.toInt())
 
+        carList.carSimul()
+
 
 
     }
