@@ -19,7 +19,7 @@ class Game {
 
 
         //4. 우승자 출력
-        print("최종 우승자 : ")
+
         PrintWinner.printWinner(winners)
 
 

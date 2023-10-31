@@ -2,6 +2,8 @@ object PrintWinner {
 
     fun printWinner(winners: MutableList<String>) {
 
+        print("최종 우승자 : ")
+
         if(checkMultiWinner(winners)){
 
             multiPrintWinner(winners)
