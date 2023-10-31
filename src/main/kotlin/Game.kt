@@ -19,21 +19,11 @@ class Game {
         val winners = Select.selectWinner(carList.getCars())
 
 
-
         //4. 우승자 출력
-
         Print.printWinner(winners)
 
 
-
     }
-
-
-
-
-
-
-
 
 
 }
