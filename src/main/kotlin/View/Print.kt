@@ -39,7 +39,12 @@ object Print {
     fun printCarState() {
 
         Game.carList.getCars().forEach { car ->
-            println("$car.carName : $car.path")
+
+            val carName = car.carName
+            val carPath = car.path
+
+            println("$carName : $carPath")
+
         }
 
     }

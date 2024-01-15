@@ -2,12 +2,12 @@ package Exception
 
 object ExceptionCheck {
 
-    fun nullCheck(para : String) = false
+    fun nullCheck(input : String) = input.trim().isEmpty()
 
     fun checkNameComma(names : String) = "," !in names
 
     fun checkCountInt(count : String) = count.toIntOrNull() == null
 
-    fun checkNameLength(name : String) = name.length <= 5
+    fun checkNameLength(name : String) = name.length > 5
 
 }

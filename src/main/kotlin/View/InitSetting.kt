@@ -1,5 +1,7 @@
 package View
 
+import ConstantGuide.INPUT_GUIDE
+import ConstantGuide.TRY_COUNT
 import Controller.Game
 import Exception.ExceptionCheck.checkCountInt
 import Exception.ExceptionCheck.checkNameComma
@@ -11,10 +13,10 @@ object InitSetting {
 
     fun initSet(){
 
-        println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
+        println(INPUT_GUIDE)
 
         //2. 초기 설정
-        val names  = Console.readLine()
+        val names = Console.readLine()
 
         if (nullCheck(names) || checkNameComma(names)) {
             throwException()
@@ -22,7 +24,7 @@ object InitSetting {
         else
             setCarList(names)
 
-        println("시도할 횟수는 몇 회인가요?")
+        println(TRY_COUNT)
 
         val count = Console.readLine()
 
@@ -41,11 +43,11 @@ object InitSetting {
 
         nameList.forEach { name ->
 
-            if(nullCheck(name) && checkNameLength(name)){
-                Game.carList.addCar(name)
+            if(nullCheck(name) || checkNameLength(name)){
+                throwException()
             }
             else
-                throwException()
+                Game.carList.addCar(name)
 
         }
 

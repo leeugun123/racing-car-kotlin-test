@@ -1,5 +1,6 @@
 package Model
 
+import ConstantGuide
 import Util.NumCheck
 import View.Print
 
@@ -16,6 +17,8 @@ class CarList(private var cars : MutableList<Car>, private var count : Int){
     }
 
     fun carSimul(){
+
+        println(ConstantGuide.EXECUTE_RESULT)
 
         repeat(count){
             execute()
