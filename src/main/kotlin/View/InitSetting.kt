@@ -1,6 +1,10 @@
 package View
 
 import Controller.Game
+import Exception.ExceptionCheck.checkCountInt
+import Exception.ExceptionCheck.checkNameComma
+import Exception.ExceptionCheck.checkNameLength
+import Exception.ExceptionCheck.nullCheck
 import camp.nextstep.edu.missionutils.Console
 
 object InitSetting {
@@ -12,9 +16,9 @@ object InitSetting {
         //2. 초기 설정
         val names  = Console.readLine()
 
-        if (names == null || "," !in names) {
+        if (nullCheck(names) || checkNameComma(names)) {
             throwException()
-        }//쉼표가 없을 경우
+        } //쉼표가 없을 경우
         else
             setCarList(names)
 
@@ -22,7 +26,7 @@ object InitSetting {
 
         val count = Console.readLine()
 
-        if(count == null || count.toIntOrNull() == null)
+        if(nullCheck(count) || checkCountInt(count))
             throwException()
         else
             Game.carList.setCount(count.toInt())
@@ -37,7 +41,7 @@ object InitSetting {
 
         nameList.forEach { name ->
 
-            if(checkName(name)){
+            if(nullCheck(name) && checkNameLength(name)){
                 Game.carList.addCar(name)
             }
             else
@@ -46,8 +50,6 @@ object InitSetting {
         }
 
     }// 5자 이하가 아닌 경우 예외 처리
-
-    private fun checkName(name: String) = name.length <= 5
 
     private fun throwException(){
         throw IllegalArgumentException("")
