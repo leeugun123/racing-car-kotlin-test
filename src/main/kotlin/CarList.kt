@@ -1,13 +1,10 @@
-data class CarList(private var cars : MutableList<Car>, private var count : Int){
+class CarList(private var cars : MutableList<Car>, private var count : Int){
 
-
-    fun setCount(count: Int){
+    fun setCount(count : Int){
         this.count = count
     }
 
-    fun getCars() : MutableList<Car>{
-        return cars
-    }
+    fun getCars() = cars
 
     fun addCar(name : String){
         cars.add(Car(name,0,""))
@@ -15,12 +12,9 @@ data class CarList(private var cars : MutableList<Car>, private var count : Int)
 
     fun carSimul(){
 
-        for (i in 0..< count) {
-
+        repeat(count){
             execute()
-
             Print.printCarState()
-
             println()//한줄 내리기
 
         }
@@ -31,7 +25,7 @@ data class CarList(private var cars : MutableList<Car>, private var count : Int)
 
     private fun execute(){
 
-        for(car in cars){
+        cars.forEach { car ->
 
             if(NumCheck.randomCheck()){
                 forward(car)
@@ -40,7 +34,6 @@ data class CarList(private var cars : MutableList<Car>, private var count : Int)
         }
 
     }
-
 
     private fun forward(car : Car){
         car.forwardCount++

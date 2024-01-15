@@ -28,29 +28,22 @@ object InitSetting {
     }
 
 
+    private fun setCarList(names : String) {
 
-    private fun setCarList(names: String?) {
+        val nameList = names.split(",").map { it.trim() }
 
-        val nameList = names!!.split(",").map { it.trim() }
-
-        for (name in nameList) {
+        nameList.forEach { name ->
 
             if(checkName(name)){
                 Game.carList.addCar(name)
             }
             else
                 throwException()
-
         }
-        //5자 이하가 아닌 경우 예외처리
 
-    }
+    }// 5자 이하가 아닌 경우 예외처리
 
-    private fun checkName(name: String): Boolean {
-
-        return name.length <= 5
-
-    }
+    private fun checkName(name: String) = name.length <= 5
 
     private fun throwException(){
 

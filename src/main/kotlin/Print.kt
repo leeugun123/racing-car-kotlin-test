@@ -5,13 +5,9 @@ object Print {
         print("최종 우승자 : ")
 
         if(checkMultiWinner(winners)){
-
             multiPrintWinner(winners)
-
         }else{
-
             print(winners[0])
-
         }
 
     }
@@ -34,24 +30,12 @@ object Print {
 
     }
 
-    private fun checkMultiWinner(winners: MutableList<String>) : Boolean{
-
-        return if(winners.size == 1)
-            false
-        else
-            true
-
-    }
+    private fun checkMultiWinner(winners: MutableList<String>) = winners.size >= 2
 
     fun printCarState() {
 
-        for(car in Game.carList.getCars()){
-
-            val carName = car.carName
-            val path = car.path
-
-            println("$carName : $path")
-
+        Game.carList.getCars().forEach { car ->
+            println("$car.carName : $car.path")
         }
 
     }
