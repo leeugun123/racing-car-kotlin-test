@@ -1,12 +1,13 @@
 package View
 
+import ConstantGuide.PRINT_FINAL_WINNER
 import Controller.Game
 
 object Print {
 
     fun printWinner(winners: MutableList<String>) {
 
-        print("최종 우승자 : ")
+        print(PRINT_FINAL_WINNER)
 
         if(checkMultiWinner(winners)){
             multiPrintWinner(winners)
