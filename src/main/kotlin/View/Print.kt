@@ -1,3 +1,7 @@
+package View
+
+import Controller.Game
+
 object Print {
 
     fun printWinner(winners: MutableList<String>) {

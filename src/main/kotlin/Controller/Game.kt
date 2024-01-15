@@ -1,3 +1,9 @@
+package Controller
+
+import View.InitSetting
+import Model.CarList
+import View.Print
+
 object Game {
 
     val carList = CarList(mutableListOf() , 0)

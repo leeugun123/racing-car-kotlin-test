@@ -1,3 +1,6 @@
+package View
+
+import Controller.Game
 import camp.nextstep.edu.missionutils.Console
 
 object InitSetting {
@@ -39,16 +42,15 @@ object InitSetting {
             }
             else
                 throwException()
+
         }
 
-    }// 5자 이하가 아닌 경우 예외처리
+    }// 5자 이하가 아닌 경우 예외 처리
 
     private fun checkName(name: String) = name.length <= 5
 
     private fun throwException(){
-
         throw IllegalArgumentException("")
-
     }
 
 

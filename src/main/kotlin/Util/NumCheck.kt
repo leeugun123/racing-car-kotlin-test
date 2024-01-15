@@ -1,3 +1,5 @@
+package Util
+
 import camp.nextstep.edu.missionutils.Randoms
 
 object NumCheck {

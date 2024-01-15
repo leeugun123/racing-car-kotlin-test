@@ -1,3 +1,7 @@
+package Controller
+
+import Model.Car
+
 object Select {
 
     fun selectWinner(cars : MutableList<Car>) : MutableList<String>{
