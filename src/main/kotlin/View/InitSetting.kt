@@ -1,11 +1,14 @@
 package View
 
-import ConstantGuide.INPUT_GUIDE
-import ConstantGuide.TRY_COUNT
+import Constant.ConstantGuide.INPUT_GUIDE
+import Constant.ConstantGuide.TRY_COUNT
 import Controller.Game
 import Exception.ExceptionCheck.checkCountInt
+import Exception.ExceptionCheck.checkMinus
 import Exception.ExceptionCheck.checkNameComma
 import Exception.ExceptionCheck.checkNameLength
+import Exception.ExceptionCheck.containsNumber
+import Exception.ExceptionCheck.hasWhiteSpace
 import Exception.ExceptionCheck.nullCheck
 import camp.nextstep.edu.missionutils.Console
 
@@ -15,26 +18,39 @@ object InitSetting {
 
         println(INPUT_GUIDE)
 
-        //2. 초기 설정
-        val names = Console.readLine()
-
-        if (nullCheck(names) || checkNameComma(names)) {
-            throwException()
-        } //쉼표가 없을 경우
-        else
-            setCarList(names)
+        inputName()
 
         println(TRY_COUNT)
 
-        val count = Console.readLine()
-
-        if(nullCheck(count) || checkCountInt(count))
-            throwException()
-        else
-            Game.carList.setCount(count.toInt())
-
+        inputCount()
 
     }
+
+    private fun inputCount() {
+
+        val count = Console.readLine()
+
+        if(checkCountRight(count))
+            throwException()
+
+        Game.carList.setCount(count.toInt())
+
+    }
+
+    private fun inputName() {
+
+        val names = Console.readLine()
+
+        if (checkNamesRight(names))
+            throwException()
+
+        setCarList(names)
+
+    }
+
+    private fun checkNamesRight(names : String) = nullCheck(names) || checkNameComma(names)
+
+    private fun checkCountRight(count : String) = nullCheck(count) || checkCountInt(count) || checkMinus(count)
 
 
     private fun setCarList(names : String) {
@@ -43,7 +59,7 @@ object InitSetting {
 
         nameList.forEach { name ->
 
-            if(nullCheck(name) || checkNameLength(name)){
+            if(nullCheck(name) || checkNameLength(name) || hasWhiteSpace(name) || containsNumber(name)){
                 throwException()
             }
             else

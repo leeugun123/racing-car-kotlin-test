@@ -31,7 +31,6 @@ object Select {
                 max = car.forwardCount
         }
 
-
         return max
 
     }

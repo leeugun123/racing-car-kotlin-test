@@ -1,6 +1,6 @@
 package Model
 
-import ConstantGuide
+import Constant.ConstantGuide
 import Util.NumCheck
 import View.Print
 
