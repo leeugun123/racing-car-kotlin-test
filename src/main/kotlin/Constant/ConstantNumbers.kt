@@ -9,4 +9,6 @@ object ConstantNumbers {
 
     const val CAR_NAME_LIMIT_LENGTH = 5
 
+    const val MULTI_WINNER_NUMBER = 2
+
 }

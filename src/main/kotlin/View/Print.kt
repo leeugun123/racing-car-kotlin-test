@@ -1,6 +1,7 @@
 package View
 
 import Constant.ConstantGuide.PRINT_FINAL_WINNER_GUIDE
+import Constant.ConstantNumbers.MULTI_WINNER_NUMBER
 import Controller.Game
 
 object Print {
@@ -35,7 +36,7 @@ object Print {
 
     }
 
-    private fun checkMultiWinner(winners: MutableList<String>) = winners.size >= 2
+    private fun checkMultiWinner(winners: MutableList<String>) = winners.size >= MULTI_WINNER_NUMBER
 
     fun printCarState() {
 
